@@ -57,33 +57,38 @@ function App() {
     console.log(newUser);
     createUser({
       variables: {
+        id:newUser.id,
         name: newUser.name,
         age: Number(newUser.age),
         isMarried: false,
       },
+      refetchQueries: [{ query: GET_USERS }],
     });
+    setNewUser('');
   };
 
   return (
     <>
-      <div>
+      <div className="form">
         <input
           placeholder="Name..."
+          value={newUser.name || ""}
           onChange={(e) =>
             setNewUser((prev) => ({ ...prev, name: e.target.value }))
           }
         />
         <input
           placeholder="Age..."
+          value={newUser.age || ""}
           type="number"
           onChange={(e) =>
             setNewUser((prev) => ({ ...prev, age: e.target.value }))
           }
         />
-        <button onClick={handleCreateUser}> Create User</button>
+        <button className="submit-btn" onClick={handleCreateUser}> Create User</button>
       </div>
 
-      <div>
+      <div className="chosen-user">
         {getUserByIdLoading ? (
           <p> Loading user...</p>
         ) : (
@@ -96,10 +101,11 @@ function App() {
       </div>
 
       <h1> Users</h1>
-      <div>
+      <div className="users-container">
         {" "}
         {getUsersData.getUsers.map((user) => (
-          <div>
+          <div className="user-card" key={user.id}>
+      <p> id: {user.id}</p>
             <p> Name: {user.name}</p>
             <p> Age: {user.age}</p>
             <p> Is this user married: {user.isMarried ? "Yes" : "No"}</p>
