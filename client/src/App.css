@@ -113,6 +113,60 @@ input:focus {
   color: #495057;
 }
 
+/* Style for the span buttons */
+.user-card span {
+  display: inline-block;
+  background-color: #007bff; /* Primary color */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 0 5px;
+  font-size: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.user-card span:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.user-card span:active {
+  background-color: #003f7f; /* Even darker shade on click */
+  transform: scale(0.95); /* Slightly shrink on click */
+}
+
+/* Center the title and search box */
+h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; /* Adds spacing between the search box and user cards */
+}
+
+.search-container input {
+  width: 80%;
+  max-width: 400px; /* Limits the search box size on larger screens */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+  transition: box-shadow 0.2s ease;
+}
+
+.search-container input:focus {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); /* Shadow on focus */
+  border-color: #007bff; /* Blue border when focused */
+  outline: none;
+}
+
 .delete-btn {
   position: absolute;
   top: 5px;
